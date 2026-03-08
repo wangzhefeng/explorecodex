@@ -1,0 +1,255 @@
+{
+  "project": "my-project",
+  "badges": {
+    "memory": {"label": "memory", "color": "#b07a6e"},
+    "commands": {"label": "commands", "color": "#8e82ad"},
+    "config": {"label": "config", "color": "#7a7670"},
+    "mcp": {"label": "MCP", "color": "#6e9468"},
+    "skill": {"label": "skill", "color": "#5e918a"},
+    "agents": {"label": "agents", "color": "#b8965e"},
+    "plugins": {"label": "interfaces", "color": "#a89a48"},
+    "marketplace": {"label": "models", "color": "#7a8b5e"},
+    "hooks": {"label": "sandbox", "color": "#ad6e5e"},
+    "code": {"label": "code", "color": "#5e82a0"}
+  },
+  "features": {
+    "codex-md": {
+      "title": "AGENTS.md",
+      "description": "Project instructions Codex follows while working in your repo.",
+      "order": 1
+    },
+    "settings": {
+      "title": "Config Basics",
+      "description": "How to configure Codex behavior, model defaults, and environment preferences.",
+      "order": 2
+    },
+    "commands": {
+      "title": "CLI Slash Commands",
+      "description": "Core interactive commands to control Codex sessions.",
+      "order": 3
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Reusable instruction packs loaded when relevant.",
+      "order": 4
+    },
+    "mcp": {
+      "title": "MCP Servers",
+      "description": "Connect Codex to external tools and data via MCP.",
+      "order": 5
+    },
+    "hooks": {
+      "title": "Sandbox & Approvals",
+      "description": "How execution permissions and approval flows protect your environment.",
+      "order": 6
+    },
+    "agents": {
+      "title": "Multi-Agent Workflows",
+      "description": "Use agents to split planning and execution across parallel tasks.",
+      "order": 7
+    },
+    "plugins": {
+      "title": "Codex Interfaces",
+      "description": "Understand CLI, IDE, Web, and Codex app entry points.",
+      "order": 8
+    },
+    "marketplaces": {
+      "title": "Models",
+      "description": "Choose the right model profile for speed, quality, and cost.",
+      "order": 9
+    }
+  },
+  "tree": [
+    {
+      "name": ".codex",
+      "path": ".codex",
+      "type": "directory",
+      "children": [
+        {
+          "name": "config.toml",
+          "path": ".codex/config.toml",
+          "type": "file",
+          "feature": "settings",
+          "badge": "config",
+          "label": "Config Example",
+          "description": "A practical configuration template for local project usage.",
+          "contentFile": ".codex/config.toml"
+        },
+        {
+          "name": "CLI_COMMANDS.md",
+          "path": ".codex/CLI_COMMANDS.md",
+          "type": "file",
+          "feature": "commands",
+          "badge": "commands",
+          "label": "Slash Command Cheat Sheet",
+          "description": "Daily commands you will use while operating Codex in terminal sessions.",
+          "contentFile": ".codex/CLI_COMMANDS.md"
+        },
+        {
+          "name": "SANDBOX.md",
+          "path": ".codex/SANDBOX.md",
+          "type": "file",
+          "feature": "hooks",
+          "badge": "hooks",
+          "label": "Sandbox & Approval Guide",
+          "description": "How Codex decides what can run automatically and what needs your approval.",
+          "contentFile": ".codex/SANDBOX.md"
+        },
+        {
+          "name": "MULTI_AGENTS.md",
+          "path": ".codex/MULTI_AGENTS.md",
+          "type": "file",
+          "feature": "agents",
+          "badge": "agents",
+          "label": "Multi-Agent Patterns",
+          "description": "How to split large tasks into smaller, auditable agent units.",
+          "contentFile": ".codex/MULTI_AGENTS.md"
+        },
+        {
+          "name": "INTERFACES.md",
+          "path": ".codex/INTERFACES.md",
+          "type": "file",
+          "feature": "plugins",
+          "badge": "plugins",
+          "label": "CLI, IDE, Web, App",
+          "description": "When to use each Codex interface and how they complement each other.",
+          "contentFile": ".codex/INTERFACES.md"
+        },
+        {
+          "name": "MODELS.md",
+          "path": ".codex/MODELS.md",
+          "type": "file",
+          "feature": "marketplaces",
+          "badge": "marketplace",
+          "label": "Model Selection",
+          "description": "A simple framework to pick models by latency, reasoning depth, and budget.",
+          "contentFile": ".codex/MODELS.md"
+        },
+        {
+          "name": "skills",
+          "path": ".codex/skills",
+          "type": "directory",
+          "badge": "skill",
+          "children": [
+            {
+              "name": "SKILLS.md",
+              "path": ".codex/skills/SKILLS.md",
+              "type": "file",
+              "feature": "skills",
+              "badge": "skill",
+              "label": "Skills Overview",
+              "description": "Build repeatable workflows with skill folders and SKILL.md.",
+              "contentFile": ".codex/skills/SKILLS.md"
+            },
+            {
+              "name": "my-skill",
+              "path": ".codex/skills/my-skill",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "SKILL.md",
+                  "path": ".codex/skills/my-skill/SKILL.md",
+                  "type": "file",
+                  "feature": "skills",
+                  "badge": "skill",
+                  "label": "Skill Definition",
+                  "description": "Minimal skill skeleton you can adapt for your own workflow.",
+                  "contentFile": ".codex/skills/my-skill/SKILL.md"
+                },
+                {
+                  "name": "scripts",
+                  "path": ".codex/skills/my-skill/scripts",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "helper.sh",
+                      "path": ".codex/skills/my-skill/scripts/helper.sh",
+                      "type": "file",
+                      "feature": "skills",
+                      "badge": "skill",
+                      "label": "Skill Script",
+                      "description": "Executable helper script referenced by SKILL.md.",
+                      "contentFile": ".codex/skills/my-skill/scripts/helper.sh"
+                    }
+                  ]
+                },
+                {
+                  "name": "references",
+                  "path": ".codex/skills/my-skill/references",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "REFERENCE.md",
+                      "path": ".codex/skills/my-skill/references/REFERENCE.md",
+                      "type": "file",
+                      "feature": "skills",
+                      "badge": "skill",
+                      "label": "Reference Notes",
+                      "description": "Deep details loaded only when the task needs them.",
+                      "contentFile": ".codex/skills/my-skill/references/REFERENCE.md"
+                    }
+                  ]
+                },
+                {
+                  "name": "assets",
+                  "path": ".codex/skills/my-skill/assets",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "template.md",
+                      "path": ".codex/skills/my-skill/assets/template.md",
+                      "type": "file",
+                      "feature": "skills",
+                      "badge": "skill",
+                      "label": "Asset Template",
+                      "description": "Reusable template file a skill can fill or transform.",
+                      "contentFile": ".codex/skills/my-skill/assets/template.md"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "src",
+      "path": "src",
+      "type": "directory",
+      "badge": "code",
+      "children": [
+        {
+          "name": "index.ts",
+          "path": "src/index.ts",
+          "type": "file",
+          "feature": null,
+          "badge": "code",
+          "label": "Entry Point",
+          "description": "A normal source file that Codex can edit, test, and refactor.",
+          "contentFile": "src/index.ts"
+        }
+      ]
+    },
+    {
+      "name": "AGENTS.md",
+      "path": "AGENTS.md",
+      "type": "file",
+      "feature": "codex-md",
+      "badge": "memory",
+      "label": "Project Instructions",
+      "description": "Persistent instructions that steer how Codex works in this repository.",
+      "contentFile": "AGENTS.md"
+    },
+    {
+      "name": ".mcp.json",
+      "path": ".mcp.json",
+      "type": "file",
+      "feature": "mcp",
+      "badge": "mcp",
+      "label": "MCP Configuration",
+      "description": "Project MCP servers and tool endpoints used by Codex.",
+      "contentFile": ".mcp.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# .codex/config.toml
+# Example project-level Codex configuration.
+# Use this as a starting point and adjust to your team's policy.
+
+model = "gpt-5"
+model_reasoning_effort = "medium"
+
+[sandbox]
+mode = "workspace-write"
+
+[approvals]
+mode = "on-request"
+
+[ui]
+hide_agent_reasoning = true
+show_raw_agent_reasoning = false

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Codex</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- SEO -->
+  <meta name="description" content="Learn Codex by exploring a simulated project. Click through real AGENTS.md files, skills, plugins, hooks, agents, and MCP configs to understand how each feature works.">
+  <meta name="keywords" content="Codex, OpenAI, AI coding, agentic coding, AGENTS.md, skills, plugins, MCP, hooks, agents">
+  <meta name="author" content="wangzhefeng">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Explore Codex">
+  <meta property="og:description" content="Learn Codex by exploring a simulated project. Every file and folder is a real Codex concept you can click through.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/wangzhefeng/explore-codex/main/logo.png">
+  <meta property="og:url" content="https://www.explorecodex.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore Codex">
+  <meta name="twitter:description" content="Learn Codex by exploring a simulated project. Every file and folder is a real Codex concept you can click through.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/wangzhefeng/explore-codex/main/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Prism.js for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/syntax.css">
+  <link rel="stylesheet" href="css/void.css">
+  <link rel="stylesheet" href="css/terminal.css">
+</head>
+<body>
+
+  <div class="app-shell">
+    <!-- Title Bar -->
+    <div class="title-bar">
+      <div class="traffic-lights">
+        <div class="traffic-light traffic-light--close"></div>
+        <div class="traffic-light traffic-light--minimize"></div>
+        <div class="traffic-light traffic-light--maximize"></div>
+      </div>
+      <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle" aria-label="Toggle sidebar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <span class="title-bar__text">codex-explorer : my-project</span>
+      <button class="mobile-terminal-toggle" id="mobile-terminal-toggle" aria-label="Toggle terminal">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <a class="title-bar__badge" href="https://github.com/wangzhefeng/explore-codex" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/github/stars/wangzhefeng/explore-codex?style=flat&logo=github&label=GitHub&color=c47a50" alt="GitHub" height="18">
+      </a>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar__header">My-Project</div>
+        <div class="sidebar__tree" id="file-tree"></div>
+      </aside>
+
+      <!-- Content Area -->
+      <main class="content-area">
+        <div class="tab-bar" id="tab-bar">
+          <div class="tab active" data-tab="welcome">
+            <span class="tab__dot"></span>
+            Welcome
+          </div>
+        </div>
+        <div class="content-scroll" id="content"></div>
+      </main>
+
+      <!-- Terminal Panel (right side) -->
+      <div class="terminal-panel" id="terminal-panel">
+        <div class="terminal-resize"></div>
+        <div class="terminal-header">
+          <span class="terminal-header__label">Codex</span>
+          <div class="terminal-header__actions">
+            <button class="terminal-header__btn terminal-header__chevron" title="Toggle">&rsaquo;</button>
+          </div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-output" id="terminal-output"></div>
+          <div class="terminal-input-line">
+            <span class="terminal-prompt">codex &gt;</span>
+            <input class="terminal-input" id="terminal-input" type="text" placeholder="Type /help for commands..." spellcheck="false" autocomplete="off">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile sidebar backdrop (outside app-shell for iOS fixed positioning) -->
+  <div class="mobile-backdrop" id="mobile-backdrop"></div>
+
+  <!-- The Void (minimize easter egg) -->
+  <div class="void-overlay" id="void-overlay">
+    <canvas class="void__canvas" id="void-canvas"></canvas>
+    <div class="void__glow"></div>
+    <div class="void__content">
+      <div class="void__text" id="void-text">
+        <p class="void__line void__line--dim">you tried to minimize me.</p>
+        <p class="void__line void__line--bold">bold move.</p>
+        <p class="void__line void__line--main">Codex doesn't shrink.<br>It expands into every corner of your codebase.</p>
+        <p class="void__line void__line--dim void__line--small">Agentic coding with no limits. Infinite context. Parallel tool use.<br>Your entire repository as working memory.</p>
+      </div>
+      <button class="void__escape" id="void-escape">// escape the void</button>
+    </div>
+  </div>
+
+  <!-- Close wobble tooltip -->
+  <div class="close-tooltip" id="close-tooltip">nice try</div>
+
+  <!-- Prism.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <!-- App scripts -->
+  <script src="js/icons.js"></script>
+  <script src="js/file-explorer.js"></script>
+  <script src="js/content-loader.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
