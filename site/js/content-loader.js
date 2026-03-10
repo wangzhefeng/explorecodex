@@ -29,7 +29,7 @@ class ContentLoader {
 
     content.innerHTML = `
       <div class="welcome">
-        <div class="welcome__label">// explore-codex</div>
+        <div class="welcome__label">// explorecodex</div>
         <h1 class="welcome__title">Learn <em>Codex</em><br>by exploring it.</h1>
         <p class="welcome__subtitle">
           This is a simulated Codex project. Every file and folder in the

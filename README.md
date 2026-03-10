@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://explorecodex.com"><img src="https://img.shields.io/badge/live%20demo-explorecodex.com-c47a50?style=flat-square" alt="Live Demo"></a>
-  <a href="https://github.com/wangzhefeng/explore-codex/blob/main/LICENSE"><img src="https://img.shields.io/github/license/wangzhefeng/explore-codex?style=flat-square&color=8e82ad" alt="License"></a>
-  <a href="https://github.com/wangzhefeng/explore-codex/stargazers"><img src="https://img.shields.io/github/stars/wangzhefeng/explore-codex?style=flat-square&color=b8965e" alt="Stars"></a>
+  <a href="https://github.com/wangzhefeng/explorecodex/blob/main/LICENSE"><img src="https://img.shields.io/github/license/wangzhefeng/explorecodex?style=flat-square&color=8e82ad" alt="License"></a>
+  <a href="https://github.com/wangzhefeng/explorecodex/stargazers"><img src="https://img.shields.io/github/stars/wangzhefeng/explorecodex?style=flat-square&color=b8965e" alt="Stars"></a>
   <img src="https://img.shields.io/badge/zero%20dependencies-vanilla%20JS-3a3632?style=flat-square" alt="Zero Dependencies">
 </p>
 
@@ -48,8 +48,8 @@ No install, no signup, no build step. Just open it and start clicking.
 If you want to run it locally, clone the repo and point any static server at the `site/` directory:
 
 ```bash
-git clone https://github.com/wangzhefeng/explore-codex.git
-cd explore-codex
+git clone https://github.com/wangzhefeng/explorecodex.git
+cd explorecodex
 
 npx serve site
 # or
@@ -61,7 +61,7 @@ python -m http.server -d site 8080
 The entire site is static HTML, CSS, and vanilla JavaScript. Zero build steps, zero frameworks, zero bundlers.
 
 ```
-explore-codex/
+explorecodex/
 ├── site/
 │   ├── index.html            # Single-page app entry point
 │   ├── data/
